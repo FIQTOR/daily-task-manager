@@ -1,5 +1,11 @@
 # Daily Task Manager
 
+[![Release](https://img.shields.io/github/v/release/FIQTOR/daily-task-manager?color=blue)](https://github.com/FIQTOR/daily-task-manager/releases)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Ubuntu%20%7C%20Linux-orange)](#2-prerequisites-ubuntu-2404)
+[![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%20v2-24C8DB)](https://tauri.app)
+[![Made with React](https://img.shields.io/badge/React-19-61DAFB)](https://react.dev)
+
 A focus-oriented daily task board for **Ubuntu**, built with **Tauri v2 + React 19 + TypeScript + Tailwind CSS v4**.
 
 Tasks are grouped into three priority tabs (**High / Medium / Low**) and can be **reordered by drag & drop** inside each tab to match your personal daily focus. The app can **register itself to launch on Ubuntu login** via `tauri-plugin-autostart`.
@@ -278,3 +284,9 @@ daily-task-manager/
 | `Esc` | Close the modal |
 | `←` / `→` (on tabs) | Switch priority tab |
 | `Space` then `↑`/`↓` then `Space` | Reorder a focused task via keyboard |
+
+---
+
+## 8. License
+
+Released under the [MIT License](LICENSE) © 2026 Fiqtor.

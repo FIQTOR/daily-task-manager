@@ -1,0 +1,51 @@
+[package]
+name = "daily-task-manager"
+version = "0.1.0"
+description = "Daily Task Manager - a focus-oriented daily task board for Ubuntu"
+authors = ["fiqtor"]
+edition = "2021"
+# `rust-version` is optional but documents the MSRV expected by Tauri v2.
+rust-version = "1.77.2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "daily_task_manager_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+# ---------------------------------------------------------------------------
+# Tauri plugins
+# ---------------------------------------------------------------------------
+# The `opener` plugin ships with the default template (used to open external
+# links in the system browser).
+tauri-plugin-opener = "2"
+
+# Registers the app with the OS login startup.
+#   Linux  -> writes ~/.config/autostart/<app>.desktop
+#   macOS  -> LaunchAgent plist
+#   Windows-> HKCU\...\Run registry key
+tauri-plugin-autostart = "2"
+
+# Simple key/value persistence on disk (JSON file in the app data dir).
+# The frontend uses it through `@tauri-apps/plugin-store`.
+tauri-plugin-store = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true

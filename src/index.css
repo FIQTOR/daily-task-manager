@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind CSS v4 entry point.
+ * Everything else is expressed with utility classes inside the React components.
+ */
+
+@theme {
+  /* App-wide design tokens exposed as Tailwind utilities (e.g. bg-surface). */
+  --color-surface: #0f172a;
+  --color-surface-2: #1e293b;
+  --color-surface-3: #334155;
+  --color-ink: #e2e8f0;
+  --color-ink-muted: #94a3b8;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 0%, #1e293b 0%, #0b1220 55%, #070b14 100%);
+  color: var(--color-ink);
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden; /* the app owns its own scroll containers */
+}
+
+/* Users should never be able to select UI chrome while dragging. */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom slim scrollbar for the task list. */
+.scroll-slim::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
